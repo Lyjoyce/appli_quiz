@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: brown;
+}
+h1{
+    font-size: medium;
+}
