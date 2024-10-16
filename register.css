@@ -43,7 +43,7 @@ a{
     text-decoration: none;
     border-radius: 5px;
     background-color: #F5E49D;
-    padding: 10px;
+    padding: 5px;
     color: black;
 }
 a:hover{
@@ -52,4 +52,11 @@ a:hover{
     background-color: aqua;
     padding: 10px;
     color: black;
+}
+@media screen and (max-width: 350px){
+    a{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
 }

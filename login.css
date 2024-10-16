@@ -53,3 +53,10 @@ a:hover{
     padding: 10px;
     color: black;
 }
+@media screen and (max-width: 350px){
+    a{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
