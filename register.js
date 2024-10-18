@@ -1,3 +1,4 @@
+//REGISTER
 function registerUser(){
     const username= document.getElementById("username").value
     const password= document.getElementById("password").value
@@ -13,3 +14,5 @@ function registerUser(){
         alert("Veuillez remplir tous les champs")
     }
 }
+
+
