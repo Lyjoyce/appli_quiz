@@ -54,21 +54,36 @@ function submitQuiz() {
  */
 function showUserMenu(username){
     const usernameDisplay= document.getElementById("username-display")
-    usernameDisplay.textContent= (username)
+    usernameDisplay.textContent= username
 }
-/*Unefois le DOM chargé, la fonction récupère l'username*/
+//Unefois le DOM chargé, la fonction récupère l'username ()=>
 document.addEventListener("DOMContentLoaded", function(){
     const storedUsername= localStorage.getItem("username")
-    if(storedUsername){
+    const isAuthenticated= localStorage.getItem("isAuthenticated")
+    if(storedUsername && isAuthenticated === "true"){
+        const usernameDisplay= document.getElementById("username-display")
+        usernameDisplay.textContent= storedUsername 
         showUserMenu(storedUsername)
+        loadQuestions()
     }else{
         window.location.href="login.html"
     }
 })
 
 document.getElementById("logout-btn").addEventListener("click", function(){
-    localStorage.removeItem("username")
-    localStorage.removeItem("password")
-    const isAuthenticated =localStorage.getItem("isAuthenticated",false)
+    localStorage.setItem("isAuthenticated",false)
     window.location.href="login.html"
 })
+let currentquestionIndex= 0;
+let questions= [];
+
+async function loadQuestions(){
+    try {
+        const response= await fetch("questions.json");
+        questions= await response.json()
+
+        console.log("questions");
+    } catch (error) {
+        console.log ("erreur lors du chargement des questions", error);
+    }
+}
