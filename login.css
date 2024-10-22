@@ -1,7 +1,6 @@
 
 .form-body{
     font-size: large;
-    color: gold;
     background-color:darkblue;
     display: flex;
     flex-direction: column;
@@ -9,8 +8,9 @@
 }
 .container{
     background-color:royalblue;
+    color: orange;
     padding: 20px;
-    box-shadow: 2px 8px 12px gold;
+    box-shadow: 2px 8px 12px orangered;
     border-radius: 10px;
 }
 h1{
@@ -33,10 +33,10 @@ button{
     border-radius: 6px;
     padding: 20px;
     background-color:darkblue;
-    color: gold;
+    color: orange;
 }
 button:hover{
-    background-color:goldenrod;
+    background-color:orange;
     color: darkblue;
 }
 a{
