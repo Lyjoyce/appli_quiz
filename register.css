@@ -1,16 +1,16 @@
 
 .form-body{
     font-size: large;
-    color: gold;
     background-color:darkblue;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .container{
-    background-color:royalblue;
+    background-color:orange;
+    color: darkblue;
     padding: 20px;
-    box-shadow: 2px 8px 12px gold;
+    box-shadow: 2px 8px 12px black;
     border-radius: 10px;
 }
 h1{
