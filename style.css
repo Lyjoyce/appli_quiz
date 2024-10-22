@@ -7,7 +7,6 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
-    color: gold;
     background-color:rgb(1,1,65) ;
     display: flex;
     justify-content: center;
@@ -20,7 +19,7 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: goldenrod;
+    background-color: orange;
     color: black;
     position: fixed;
     top: 0;
@@ -36,15 +35,19 @@ body{
     font-weight: bold;
 }
 #logout-btn{
-    background-color: brown;
+    background-color: palegoldenrod;
     border: none;
-    color: white;
+    color: black;
     border-radius: 10px;
     cursor: pointer;
     padding: 10px;
 }
+#logout-btn:hover{
+    background-color: skyblue;
+}
 .container{
     background-color: skyblue;
+    color: gold;
     color: black;
     padding: 20px;
     box-shadow: 2px 8px 12px black;
@@ -62,7 +65,6 @@ h1{
     margin-top: 20px;
     font-weight: bold;
 }
-/*cursor pour faire apparaître la petite main*/
 label{
     margin-bottom: 10px;
     margin-left: 10px;
@@ -70,22 +72,21 @@ label{
     cursor: pointer;
     padding: 10px;
     border-radius: 8px;
-    background-color:goldenrod ;
+    background-color:darkorange ;
 }
 button{
     display: block;
     width: 100%;
     padding: 10px;
     background-color:darkblue;
-    color:gold;
+    color:orange;
     border: none;
     cursor: pointer;
     font-size: larger;
     border-radius: 8px;
 }
-/*effet lors du passage de la souris*/
 button:hover{
-background-color: gold;
+background-color: orange;
 color: darkblue;
 }
 #result{
@@ -100,11 +101,11 @@ color: darkblue;
     padding: 20px;
 }
 .excellent{
-    background-color:orchid;
+    background-color:magenta;
 }
 .good{
     background-color:dodgerblue;
 }
 .try-again{
-    background-color:coral;
+    background-color:orangered;
 }
