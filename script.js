@@ -80,9 +80,9 @@ let questions= [];
 async function loadQuestions(){
     try {
         const response= await fetch("questions.json");
-        questions= await response.json()
+        questions= await response.json();
 
-        console.log("questions");
+        console.log(questions);
     } catch (error) {
         console.log ("erreur lors du chargement des questions", error);
     }
