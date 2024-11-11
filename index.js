@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const storedUsername= localStorage.getItem("username")
     if(storedUsername){
         showUserMenu(storedUsername)
+        loadQuestions()
     }else{
         window.location.href= "login.html"
     }
@@ -80,11 +81,20 @@ document.getElementById("logout-btn").addEventListener("click", function(){
     window.location.href= "login.html"
 })
 
-
-
 /*function checkAuth(){
     const isAuthenticated =localStorage.getItem("isAuthenticated")
     if(isAuthenticated !== "true"){
         alert("Veuillez vous connecter pour acceder au quiz") 
     }
 }*/
+let currentQuestionIndex = 0;
+let questions = [];
+async function loadQuestions(){
+    try{
+        const response = await fetch("questions.json")
+        questions = await response.json()
+        console.log(questions)
+    }catch(error){
+        console.log ("erreur lors du chargement des questions", error)
+    }
+}
