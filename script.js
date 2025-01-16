@@ -76,13 +76,16 @@ document.getElementById("logout-btn").addEventListener("click", function(){
 })
 let currentquestionIndex= 0;
 let questions= [];
+let selectedDifficulty="";
 
-async function loadQuestions(){
+async function loadQuestions(difficulty){
     try {
         const response= await fetch("questions.json");
         questions= await response.json();
-
-        console.log(questions);
+        const FilteredQuestions= questions.filter ((q) => q.difficulty===difficulty);
+        console.log("questions non filtrées" +questions);
+        console.log("questions filtrées" + FilteredQuestions);
+       
     } catch (error) {
         console.log ("erreur lors du chargement des questions", error);
     }

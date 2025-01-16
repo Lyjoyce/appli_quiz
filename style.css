@@ -60,6 +60,25 @@ body{
 h1{
     text-align: center;
 }
+.difficulty-selection{
+    margin-bottom: 20px 0;
+}
+.hidden{
+    display: none;
+}
+.difficulty-btn{
+    background-color: darkmagenta;
+    color: white;
+    margin: 20px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.difficulty-btn:hover{
+    background-color: mediumorchid;
+    color: black;
+    transform:scaleX(1.1);
+}
+
 .question p{
     margin-bottom: 20px;
     margin-top: 20px;
