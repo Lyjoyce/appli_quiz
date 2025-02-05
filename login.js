@@ -1,7 +1,7 @@
 //LOGIN expliquer la f, ses paramètres,types, ce qu'elle renvoie
 function loginUser(){
     const username= document.getElementById("login-username").value
-    const password= document.getElementById("login-password").value
+    const password= document.getElementById("password").value
 
     const storedUsername=localStorage.getItem("username")
     const storedPassword=localStorage.getItem("password")
