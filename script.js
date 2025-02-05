@@ -74,6 +74,7 @@ document.getElementById("logout-btn").addEventListener("click", function(){
     localStorage.setItem("isAuthenticated",false)
     window.location.href="login.html"
 })
+
 let currentquestionIndex= 0;
 let questions= [];
 let selectedDifficulty="";
