@@ -19,6 +19,6 @@ function checkAuth(){
 
     if(isAuthenticated !== "true"){
         alert("Veuillez vous connecter pour acceder au quiz") 
-        window.location.href="login.html"
+        window.location.href="index.html"
     }
 }
