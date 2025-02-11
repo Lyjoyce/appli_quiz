@@ -6,7 +6,7 @@ function loginUser(){
     const storedUsername=localStorage.getItem("username")
     const storedPassword=localStorage.getItem("password")
 
-    if(username===storedUsername && password===storedPassword){
+    if(username===storedUsername && loginPassword===storedPassword){
         localStorage.setItem("isAuthenticated", true)
         window.location.href="index.html"
     }else{
@@ -14,13 +14,11 @@ function loginUser(){
     }
 }
 
-
-
-
-/*function checkAuth(){
+function checkAuth(){
     const isAuthenticated =localStorage.getItem("isAuthenticated")
+
     if(isAuthenticated !== "true"){
         alert("Veuillez vous connecter pour acceder au quiz") 
         window.location.href="login.html"
     }
-}*/
+}
