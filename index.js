@@ -133,3 +133,105 @@ async function loadQuestions(difficulty){
         console.error("Erreur lors du chargement des questions", error)
     }
 }
+//Démarrer le quiz
+function startQuiz() {
+    document.querySelector(".difficulty-selection").classList.add("hidden")
+    document.getElementById("quiz-container").classList.remove("hidden")
+    showQuestion()
+}
+//Afficher la question actuelle
+function showQuestion() {
+    if(currentQuestionIndex < questions.length) {
+        console.log(questions)
+        const questionData = questions[currentQuestionIndex]
+        console.log( "question data" + questionData)
+        const questionContainer= document.getElementById("quiz-container")
+
+        questionContainer.innerHTML = `
+        <div class"question">
+        <p> ${questionData.question} <p/>
+        <div/>
+        <form id="quiz-form">
+         ${questionData.options
+         .map(
+                (option, index)=> `
+                <label class="option"> 
+                    <input type="radio" name="answer" value="${option}">
+                    <span class="custom-radio"></span>
+                    ${option}
+                </label>
+                `
+                )
+            .join("")}
+            <button type="button" onclick="submitAnswer()">Soumettre</button>
+        </form>
+        `
+        }else{
+            showFinalResult()
+        }
+}
+
+//Soumettre la réponse actuelle
+function submitAnswer(){
+    const form = document.getElementById("quiz-form")
+    const selectAnswer = form.answer.value
+
+    if (!selectAnswer){
+        alert("Veuillez sélectionner une réponse")
+        return
+    }
+    //Vérifier la réponse et passer à la question suivante
+    checkAnswer(selectAnswer)
+    nextQuestion()
+}
+function nextQuestion(){
+    currentQuestionIndex++
+    showQuestion()
+}
+// Vérifier si la réponse est correcte
+function checkAnswer(selectAnswer) {
+    const currentQuestion = questions[currentQuestionIndex]
+    if (selectAnswer === currentQuestion.answer){
+        incrementScore()
+    }
+}
+//Incrémenter le score
+
+let score = 0
+function incrementScore() {
+    score++
+}
+//Afficher le résultat final
+function showFinalResult() {
+    const quizContainer = document.getElementById("quiz-container")
+    quizContainer.innerHTML = `
+    <div id="result>
+    <p>Votre score final est de ${score} sur ${questions.length}.</p>
+    </div>
+    `
+}
+
+function submitQuiz() {
+    calculateScore(function(score) {
+        displayResult(score, function() {
+            handleMessage(score)
+        })
+    })
+}
+
+function calculateScore(callback){
+    const correctAnswers ={
+        q1:"Paris",
+        q2:"Mercure",
+        q3:"Jupiter",
+    }
+    const form = document.getElementById("quiz-form")
+    let score=0
+    for(const question in correctAnswers){
+        const userAnswers= form[question].value
+        if(userAnswers===correctAnswers[question]){
+            score++
+        }
+    }
+    callback(score)
+}

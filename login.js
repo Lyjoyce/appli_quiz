@@ -6,7 +6,7 @@ function loginUser(){
     const storedUsername=localStorage.getItem("username")
     const storedPassword=localStorage.getItem("password")
 
-    if(username===storedUsername && loginPassword===storedPassword){
+    if(username===storedUsername && password===storedPassword){
         localStorage.setItem("isAuthenticated", true)
         window.location.href="index.html"
     }else{
