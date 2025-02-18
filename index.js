@@ -80,21 +80,31 @@ document.getElementById("logout-btn").addEventListener("click", function(){
     localStorage.setItem("isAuthenticated", false)
     window.location.href= "login.html"
 })
-
 /*function checkAuth(){
     const isAuthenticated =localStorage.getItem("isAuthenticated")
     if(isAuthenticated !== "true"){
         alert("Veuillez vous connecter pour acceder au quiz") 
     }
 }*/
-let currentQuestionIndex = 0;
-let questions = [];
-async function loadQuestions(){
+
+let currentQuestionIndex = 0
+let question = []
+let selectedDifficulty = ""
+
+async function loadQuestions(difficulty){
+    console.log("difficulté choisie" + difficulty)
     try{
         const response = await fetch("questions.json")
         questions = await response.json()
-        console.log(questions)
-    }catch(error){
-        console.log ("erreur lors du chargement des questions", error)
+
+        const FilterdQuestions = questions.filters(
+            (q) => q.difficulty === difficulty
+    )
+    selectedDifficulty = difficulty
+    currentQuestionIndex = 0 
+
+    startQuiz()
+    } catch (error){
+        console.log("Erreur lors du chargement")
     }
 }
