@@ -86,7 +86,7 @@ document.getElementById("logout-btn").addEventListener("click", function(){
         alert("Veuillez vous connecter pour acceder au quiz") 
     }
 }*/
-
+/*
 let currentQuestionIndex = 0
 let question = []
 let selectedDifficulty = ""
@@ -106,5 +106,30 @@ async function loadQuestions(difficulty){
     startQuiz()
     } catch (error){
         console.log("Erreur lors du chargement")
+    }
+}
+*/
+//Chargement des questions en fonction du niveau sélectionné
+
+const URL= "https://46921d2a-73a6-436b-aca9-deb6e9823b49.mock.pstmn.io/api/AllQuestions"
+
+async function loadQuestions(difficulty){
+    try{
+        const response = await fetch("questions.json")
+
+        if (!response.ok){
+            throw new Error(`Erreur HTTP: ${response.status}`)
+        }
+        const allQuestions = await response.json()
+       
+//Filtrer les questions par diff
+        questions= allQuestions.filter((q) => q.difficulty === difficulty)
+        selectedDifficulty = difficulty
+        currentQuestionIndex = 0
+
+        startQuiz()
+    }
+    catch (error) {
+        console.error("Erreur lors du chargement des questions", error)
     }
 }
