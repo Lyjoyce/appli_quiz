@@ -27,7 +27,6 @@ function submitQuiz() {
     }
 }
 
-
 //REGISTER
 function registerUser(){
     const username= document.getElementById("username").value
