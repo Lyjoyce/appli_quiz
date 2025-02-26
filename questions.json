@@ -1,14 +1,13 @@
-{
-  "facile": [
+[
     {
       "question": "Quelle est la capitale de la France?",
       "options": [
         "Paris",
         "Londres",
-        "Rome",
-        "Madrid"
+        "Rome"
       ],
-      "answer": "Paris"
+      "answer": "Paris",
+      "difficulty":"facile"
     },
     {
       "question": "Quelle est la planète la plus proche de la Terre?",
@@ -17,7 +16,8 @@
         "Venus",
         "Mars"
       ],
-      "answer": "Mercure"
+      "answer": "Mercure",
+      "difficulty":"facile"
     },
     {
       "question": "Quelle est la plus grande planète du système solaire?",
@@ -26,10 +26,10 @@
         "Saturne",
         "Neptune"
       ],
-      "answer": "Jupiter"
+      "answer": "Jupiter",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quelle est la capitale de l'Espagne?",
       "options": [
         "Seville",
@@ -37,10 +37,10 @@
         "Barcelone",
         "Madrid"
       ],
-      "answer": "Madrid"
+      "answer": "Madrid",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quelle est la couleur du ciel par temps clair?",
       "options": [
         "Rouge",
@@ -48,11 +48,10 @@
         "Vert",
         "Jaune"
       ],
-      "answer": "Bleu"
-     
+      "answer": "Bleu",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Combien de jours y a-t-il dans une semaine?",
       "options": [
         "5",
@@ -60,10 +59,10 @@
         "7",
         "8"
       ],
-      "answer": "7"
+      "answer": "7",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quel est l'animal domestique le plus commun?",
       "options": [
         "Chien",
@@ -71,10 +70,10 @@
         "Oiseau",
         "Poisson"
       ],
-      "answer": "Chat"
+      "answer": "Chat",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quel est l'aliment de base en Italie?",
       "options": [
         "Pain",
@@ -82,10 +81,10 @@
         "Riz",
         "Pâtes"
       ],
-      "answer": "Pâtes"
+      "answer": "Pâtes",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quel est le symbole chimique de l'eau?",
       "options": [
         "O2",
@@ -93,10 +92,10 @@
         "CO2",
         "NaCl"
       ],
-      "answer": "H2O"
+      "answer": "H2O",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quelle est la saison après l'hiver?",
       "options": [
         "Printemps",
@@ -104,10 +103,10 @@
         "Automne",
         "Hiver"
       ],
-      "answer": "Printemps"
+      "answer": "Printemps",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quel est l'instrument de musique à cordes le plus joué?",
       "options": [
         "Piano",
@@ -115,10 +114,10 @@
         "Violoncelle",
         "Flûte"
       ],
-      "answer": "Guitare"
+      "answer": "Guitare",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quel est le continent le plus vaste?",
       "options": [
         "Asie",
@@ -126,10 +125,10 @@
         "Amérique",
         "Afrique"
       ],
-      "answer": "Asie"
+      "answer": "Asie",
+      "difficulty":"facile"
     },
     {
-      "difficulty":"facile",
       "question": "Quel est le sport le plus populaire au monde?",
       "options": [
         "Basketball",
@@ -137,10 +136,10 @@
         "Tennis",
         "Rugby"
       ],
-      "answer": "Football"
-    }
-  ],
-  "moyen": [
+      "answer": "Football",
+      "difficulty":"facile"
+    },
+
     {
       "difficulty":"moyen",
       "question": "Qui a écrit 'Les Misérables'?",
@@ -250,9 +249,8 @@
         "Venise"
       ],
       "answer": "Rome"
-    }
-  ],
-  "difficile": [
+    },
+
     {
       "difficulty":"difficile",
       "question": "Quel est l'élément chimique avec le symbole 'Fe'?",
@@ -364,4 +362,4 @@
       "answer": "4.5"
     }
   ]
-}
+

@@ -1,3 +1,4 @@
+/*
 function submitQuiz() {
     const correctAnswers = {
         q1: "Paris",
@@ -17,14 +18,16 @@ function submitQuiz() {
     //badkiks pour écrire js dans html avec ${}
     resultDIV.innerHTML = `votre score est de ${score} sur 3.`
 
-if (score === 3) {
+    if (score === 3) {
     resultDIV.innerHTML += "<br>Excellent!"
-} else if (score === 2) {
+    } else if (score === 2) {
     resultDIV.innerHTML += "<br>Bon travail, vous pouvez vous améliorer!"
-} else {
+    } else {
     resultDIV.innerHTML += "<br>Vous pouvez faire mieux!"
+    }
 }
-}
+*/
+
 //REGISTER
 function registerUser(){
     const username= document.getElementById("username").value
@@ -55,6 +58,14 @@ function loginUser(){
     }else{
         alert("nom d'utilisateur ou mot de pass incorrect")
     }
+} 
+//lig83
+function checkAuth(){
+    const isAuthenticated =localStorage.getItem("isAuthenticated")
+    if(isAuthenticated !== "true"){
+        alert("Veuillez vous connecter pour acceder au quiz")
+        window.location.href = "login.html" 
+    }
 }
 /**
  * cette fonction affiche username dans le span
@@ -65,39 +76,42 @@ function showUserMenu(username){
     usernameDisplay.textContent= username
 }
 //Unefois le DOM chargé, la fonction récupère l'username dans le localStorage
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", function() /*()=>*/ {
     const storedUsername= localStorage.getItem("username")
-    if(storedUsername){
+    const isAuthenticated = localStorage.getItem("isAuthenticated")
+    if (storedUsername && isAuthenticated === "true"){
         showUserMenu(storedUsername)
-        loadQuestions()
-    }else{
+    }else {
         window.location.href= "login.html"
     }
 })
+
 document.getElementById("logout-btn").addEventListener("click", function(){
     localStorage.removeItem("username")
     localStorage.removeItem("password")
     localStorage.setItem("isAuthenticated", false)
     window.location.href= "login.html"
 })
-/*function checkAuth(){
-    const isAuthenticated =localStorage.getItem("isAuthenticated")
-    if(isAuthenticated !== "true"){
-        alert("Veuillez vous connecter pour acceder au quiz") 
-    }
-}*/
-/*
-let currentQuestionIndex = 0
-let question = []
-let selectedDifficulty = ""
 
-async function loadQuestions(difficulty){
+// SELECTION 
+document.querySelectorAll(".difficulty-btn").forEach((btn) => {
+    btn.addEventListener("click", function() {
+        const level = btn.getAttribute("data-level")
+        loadQuestions(level)
+    })
+})
+
+let currentQuestionIndex = 0
+let questions = []
+let selectedDifficulty = ""
+/*
+async function loadQuestions(difficulty) {
     console.log("difficulté choisie" + difficulty)
     try{
         const response = await fetch("questions.json")
         questions = await response.json()
 
-        const FilterdQuestions = questions.filters(
+        const FilterdQuestions = questions.filter(
             (q) => q.difficulty === difficulty
     )
     selectedDifficulty = difficulty
@@ -110,18 +124,17 @@ async function loadQuestions(difficulty){
 }
 */
 //Chargement des questions en fonction du niveau sélectionné
-
 const URL= "https://46921d2a-73a6-436b-aca9-deb6e9823b49.mock.pstmn.io/api/AllQuestions"
 
 async function loadQuestions(difficulty){
     try{
-        const response = await fetch("questions.json")
+        const response = await fetch(URL)
 
         if (!response.ok){
             throw new Error(`Erreur HTTP: ${response.status}`)
         }
         const allQuestions = await response.json()
-       
+
 //Filtrer les questions par diff
         questions= allQuestions.filter((q) => q.difficulty === difficulty)
         selectedDifficulty = difficulty
@@ -133,18 +146,27 @@ async function loadQuestions(difficulty){
         console.error("Erreur lors du chargement des questions", error)
     }
 }
+
 //Démarrer le quiz
 function startQuiz() {
     document.querySelector(".difficulty-selection").classList.add("hidden")
     document.getElementById("quiz-container").classList.remove("hidden")
     showQuestion()
 }
+/*
 //Afficher la question actuelle
 function showQuestion() {
     if(currentQuestionIndex < questions.length) {
-        console.log(questions)
         const questionData = questions[currentQuestionIndex]
-        console.log( "question data" + questionData)
+        const questionContainer= document.getElementById("quiz-container")
+        console.log("question data" +questionData)
+    }
+}
+*/
+//Afficher la question actuelle
+function showQuestion() {
+    if(currentQuestionIndex < questions.length) {
+        const questionData = questions[currentQuestionIndex]
         const questionContainer= document.getElementById("quiz-container")
 
         questionContainer.innerHTML = `
@@ -211,14 +233,8 @@ function showFinalResult() {
     `
 }
 
-function submitQuiz() {
-    calculateScore(function(score) {
-        displayResult(score, function() {
-            handleMessage(score)
-        })
-    })
-}
-
+/*
+// REFACTO
 function calculateScore(callback){
     const correctAnswers ={
         q1:"Paris",
@@ -235,3 +251,35 @@ function calculateScore(callback){
     }
     callback(score)
 }
+
+function displayResult(score, callback) {
+    const resultDIV = document.getElementById("result")
+    resultDIV.innerHTML = `Votre score est de ${score} sur 3.`
+
+    callback(score)
+}
+
+function handleMessage(score) {
+    const resultDIV = document.getElementById("result")
+    resultDIV.classList.remove("excellent", "good", "try-again")
+
+if(score===3){
+    resultDIV.innerHTML+=" <br>Excellent!"
+    resultDIV.classList.add("excellent")
+    }else if(score===2){
+    resultDIV.innerHTML+=" <br>Bon travail, vous pouvez vous améliorer!"
+    resultDIV.classList.add("good")
+    }else{
+    resultDIV.innerHTML+=" <br>Vous pouvez faire mieux!"
+    resultDIV.classList.add("try-again")
+ }
+}
+
+function submitQuiz() {
+    calculateScore(function(score) {
+        displayResult(score, function() {
+            handleMessage(score)
+        })
+    })
+}
+*/

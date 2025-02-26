@@ -86,7 +86,7 @@ async function loadQuestions(difficulty){
         const FilteredQuestions= questions.filter ((q) => q.difficulty===difficulty);
         console.log("questions non filtrées" +questions);
         console.log("questions filtrées" + FilteredQuestions);
-       
+
     } catch (error) {
         console.log ("erreur lors du chargement des questions", error);
     }
