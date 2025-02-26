@@ -108,7 +108,7 @@ let selectedDifficulty = ""
 async function loadQuestions(difficulty) {
     console.log("difficulté choisie" + difficulty)
     try{
-        const response = await fetch("questions.json")
+        const response = await fetch("3quest.json")
         questions = await response.json()
 
         const FilterdQuestions = questions.filter(

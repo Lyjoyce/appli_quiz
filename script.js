@@ -81,7 +81,7 @@ let selectedDifficulty="";
 
 async function loadQuestions(difficulty){
     try {
-        const response= await fetch("questions.json");
+        const response= await fetch("3quest.json");
         questions= await response.json();
         const FilteredQuestions= questions.filter ((q) => q.difficulty===difficulty);
         console.log("questions non filtrées" +questions);
