@@ -70,6 +70,9 @@ document.querySelectorAll(".difficulty-btn").forEach((btn) => {
         loadQuestions(level)
     })
 })
+let currentQuestionIndex = 0
+let questions =[]
+let selectedDifficulty = ""
 
 //Chargement des questions en fonction du niveau sélectionné
 const URL= "https://46921d2a-73a6-436b-aca9-deb6e9823b49.mock.pstmn.io/api/AllQuestions"
@@ -84,7 +87,7 @@ async function loadQuestions(difficulty){
         const allQuestions = await response.json()
 
 //Filtrer les questions par diff
-        questions= allQuestions.filter((q) => q.difficulty === difficulty)
+        questions = allQuestions.filter((q) => q.difficulty === difficulty)
         selectedDifficulty = difficulty
         currentQuestionIndex = 0
 
@@ -165,7 +168,7 @@ function incrementScore() {
 function showFinalResult() {
     const quizContainer = document.getElementById("quiz-container")
     quizContainer.innerHTML = `
-    <div id="result>
+    <div id="result">
     <p>Votre score final est de ${score} sur ${questions.length}.</p>
     </div>
     `
