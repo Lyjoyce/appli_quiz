@@ -3,13 +3,13 @@
 
 ## Présentation
 
-Résolution de l'exercice proposé dans la newsletter de decembre 2022.
-Application proposant une todoList permettant au père Noël de pouvoir livrer correctement tous les enfants (et grand enfant) du monde entier.
+Résolution de l'exercice proposé dans le quiz de novembre 2024.
+Application proposant un quiz de culture générale avec plusieurs niveaux de difficultés
 
 Cet exercice permet de mettre en évidence les compétences suivantes : 
 - front-end : site web dynamique et responsive
 - back-end : composant d'accès à la base de données
-- base de données : manipulation des opérations elementaires 
+- base de données : manipulation des opérations élémentaires 
 
 ## Pré-requis
 
@@ -32,7 +32,7 @@ IDE
 
 ## Technologies utilisées
 
-Ce projet utilise en front, Spring Boot 2.7.8 en back-end
+Ce projet utilise Spring Boot 2.7.8 en back-end
 
 ## Utilisation
 
