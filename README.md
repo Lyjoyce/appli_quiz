@@ -1,5 +1,5 @@
 
-# Newsletter studi decembre 2022
+# Application QUIZ octobre 2024 STUDI formateur : 
 
 ## Présentation
 
