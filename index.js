@@ -4,7 +4,7 @@ function registerUser(){
     const password= document.getElementById("password").value
 
     if(username&&password){
-        /*localStorage fonctionne avec clé,valeur*/
+        //localStorage fonctionne avec clé,valeur
         localStorage.setItem("username", username)
         localStorage.setItem("password", password)
    
@@ -134,6 +134,7 @@ function showQuestion() {
             showFinalResult()
         }
 }
+/*
 //Soumettre la réponse actuelle
 function submitAnswer(){
     const form = document.getElementById("quiz-form")
