@@ -112,9 +112,9 @@ function showQuestion() {
         const questionContainer= document.getElementById("quiz-container")
 
         questionContainer.innerHTML = `
-        <div class"question">
-        <p> ${questionData.question} <p/>
-        <div/>
+        <div class="question">
+        <p> ${questionData.question} </p>
+        </div>
         <form id="quiz-form">
          ${questionData.options
          .map(
